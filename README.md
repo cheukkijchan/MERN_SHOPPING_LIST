@@ -1,2 +1,2 @@
 # Mern Shopping List app
-Following tutorial by Traversy Media on Youtube
+Following tutorial made by Traversy Media on Youtube
