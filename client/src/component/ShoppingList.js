@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { connect } from 'react-redux'; //get state from redux into react
-import { getItems, deleteItem } from '../actions/itemActions';
-import PropTypes from 'prop-types'; // validation of component proptype
-
+import React, { Component } from "react";
+import { Container, ListGroup, ListGroupItem, Button } from "reactstrap";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { connect } from "react-redux"; //get state from redux into react
+import { getItems, deleteItem } from "../actions/itemActions";
+import PropTypes from "prop-types"; // validation of component proptype
 
 export class ShoppingList extends Component {
   // state = {
@@ -20,12 +19,12 @@ export class ShoppingList extends Component {
     this.props.getItems();
   }
 
-  onDeleteClick = (id) => {
+  onDeleteClick = id => {
     this.props.deleteItem(id);
-  }
+  };
 
   render() {
-    const { items } = this.props.item //destructuring to get item in state
+    const { items } = this.props.item; //destructuring to get item in state
     return (
       // button for add item and creating a list of items after additem which has transition fading effect with remove-btn
       <Container>
@@ -44,7 +43,7 @@ export class ShoppingList extends Component {
         >
           Add Item
         </Button> */}
-        
+
         <ListGroup>
           <TransitionGroup className="shopping-list">
             {items.map(({ _id, name }) => (
@@ -65,19 +64,22 @@ export class ShoppingList extends Component {
           </TransitionGroup>
         </ListGroup>
       </Container>
-    )
+    );
   }
 }
 
 ShoppingList.propTypes = {
   getItems: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired
-}
+};
 
 // mapping redux state into item properties
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   item: state.item
 });
 
 // different export when using connect
-export default connect(mapStateToProps, { getItems, deleteItem })(ShoppingList)
+export default connect(
+  mapStateToProps,
+  { getItems, deleteItem }
+)(ShoppingList);

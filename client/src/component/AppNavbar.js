@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Collapse,
   Navbar,
@@ -8,41 +8,38 @@ import {
   NavItem,
   NavLink,
   Container
-} from 'reactstrap';
+} from "reactstrap";
 
 class AppNavbar extends Component {
   state = {
     isOpen: false
-  }
+  };
 
-  toggle= () => {
+  toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen
     });
-  }
+  };
   // using imports from reactstrap
-  render()  {
+  render() {
     return (
-    <div>
-      <Navbar color="dark" dark expand="sm" className="mb-5">
-        <Container>
-          <NavbarBrand href="/">ShoppingList</NavbarBrand>
-          <NavbarToggler onClick={this.toggle}/>
-          <Collapse isOpen={this.state.isOpen} navbar>
+      <div>
+        <Navbar color="dark" dark expand="sm" className="mb-5">
+          <Container>
+            <NavbarBrand href="/">ShoppingList</NavbarBrand>
+            <NavbarToggler onClick={this.toggle} />
+            <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
                   <NavLink href="https://google.com">Google</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>
-        </Container>
-      </Navbar>
-    </div>
+          </Container>
+        </Navbar>
+      </div>
     );
   }
 }
-
-
-
 
 export default AppNavbar;
