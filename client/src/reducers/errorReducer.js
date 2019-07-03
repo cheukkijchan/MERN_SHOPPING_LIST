@@ -1,54 +1,30 @@
-import {
-  USER_LOADED,
-  USER_LOADING,
-  AUTH_ERROR,
-  LOGIN_FAIL,
-  LOGIN_SUCCESS,
-  LOGOUT_SUCCESS,
-  REGISTER_FAIL,
-  REGISTER_SUCCESS
-} from "../actions/types";
+import { GET_ERRORS, CLEAR_ERRORS } from "../actions/types";
 
 const initialState = {
-  token: localStorage.getItem("token"),
-  isAuthenticated: null,
-  isLoading: false,
-  user: null
+  msg: {},
+  status: null,
+  id: null
 };
+
+// GET_ERROR FUNCTION
+// after itemAction.js sent get request to the backend item, itemReducer get the payload(state) and combine with (initial state) from Action
+// return state at the end
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case USER_LOADING:
+    case GET_ERRORS:
       return {
-        ...state,
-        isLoading: true
+        msg: action.payload.msg,
+        status: action.payload.status,
+        id: action.payload.id
       };
-    case USER_LOADED:
+    case CLEAR_ERRORS:
       return {
-        ...state,
-        isAuthenticated: true,
-        isLoading: false,
-        user: action.payload
+        msg: {},
+        status: null,
+        id: null
       };
-    case LOGIN_SUCCESS:
-    case REGISTER_SUCCESS:
-      return {
-        ...state,
-        ...action.payload,
-        isAuthenticated: true,
-        isLoading: false
-      };
-    case AUTH_ERROR:
-    case LOGIN_FAIL:
-    case LOGOUT_SUCCESS:
-    case REGISTER_FAIL:
-      return {
-        ...state,
-        token: null,
-        isAuthenticated: null,
-        isLoading: false,
-        user: null
-      };
+
     default:
       return state;
   }

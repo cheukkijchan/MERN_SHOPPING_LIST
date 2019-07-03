@@ -7,7 +7,7 @@ const initialState = {
 }
 
 // GET_ITEM FUNCTION
-// after itemActio.js sent get request to the backend item, itemReducer get the payload(state) and combine with (initial state) from Action
+// after itemAction.js sent get request to the backend item, itemReducer get the payload(state) and combine with (initial state) from Action
 // return state at the end
 
 export default function(state = initialState, action) {

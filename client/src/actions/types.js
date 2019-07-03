@@ -1,3 +1,5 @@
+//Since strings are prone to typos and duplicates it’s better to have action types declared as constants.
+//This approach helps avoiding errors that will be difficult to debug.
 //ITEMS ACTION
 export const GET_ITEMS = "GET_ITEMS";
 export const ADD_ITEM = "ADD_ITEM";
@@ -13,4 +15,4 @@ export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
 export const GET_ERRORS = "GET_ERRORS";
-export const CLEAR_ERRORS = "CLEAR_SERRORS";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
